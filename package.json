@@ -37,6 +37,7 @@
     "cors": "^2.8.5",
     "dotenv": "16.3.1",
     "express": "^4.17.2",
+    "medusa-file-spaces": "^1.4.0",
     "medusa-fulfillment-manual": "latest",
     "medusa-interfaces": "latest",
     "medusa-payment-manual": "latest",
