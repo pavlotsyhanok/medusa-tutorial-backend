@@ -20,7 +20,7 @@
     "watch": "cross-env tsc --watch",
     "test": "cross-env jest",
     "seed": "cross-env medusa seed -f ./data/seed.json",
-    "start": "cross-env npm run build && medusa start",
+    "start": "medusa migrations run && medusa start",
     "start:custom": "cross-env npm run build && node --preserve-symlinks --trace-warnings index.js",
     "dev": "cross-env npm run build:server && medusa develop"
   },
@@ -69,23 +69,14 @@
         "tsconfig": "tsconfig.spec.json"
       }
     },
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/node_modules/"
-    ],
+    "moduleFileExtensions": ["js", "json", "ts"],
+    "testPathIgnorePatterns": ["/node_modules/", "<rootDir>/node_modules/"],
     "rootDir": "src",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
     "transform": {
       ".ts": "ts-jest"
     },
-    "collectCoverageFrom": [
-      "**/*.(t|j)s"
-    ],
+    "collectCoverageFrom": ["**/*.(t|j)s"],
     "coverageDirectory": "./coverage",
     "testEnvironment": "node"
   }
