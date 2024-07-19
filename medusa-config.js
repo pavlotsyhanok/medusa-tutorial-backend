@@ -62,6 +62,8 @@ const plugins = [
   {
     resolve: `medusa-plugin-meilisearch`,
     options: {
+      // config object passed when creating an instance
+      // of the MeiliSearch client
       config: {
         host: process.env.MEILISEARCH_HOST,
         apiKey: process.env.MEILISEARCH_API_KEY,
@@ -71,6 +73,7 @@ const plugins = [
           indexSettings: {
             searchableAttributes: ["title", "description", "variant_sku"],
             displayedAttributes: [
+              "id",
               "title",
               "description",
               "variant_sku",
@@ -79,15 +82,6 @@ const plugins = [
             ],
           },
           primaryKey: "id",
-          transformer: (product) => ({
-            id: product.id,
-            title: product.title,
-            description: product.description,
-            variant_sku: product.variant_sku,
-            thumbnail: product.thumbnail,
-            handle: product.handle,
-            // include other attributes as needed
-          }),
         },
       },
     },
